@@ -1,5 +1,5 @@
-import pets_db as pets_db
-from question5 import sql_create_favorite_foods, sql_alter_tables_with_favorite_food, sql_select_all_vegetarian_pets
+import src.pets_db as pets_db
+from src.question5 import sql_create_favorite_foods, sql_alter_tables_with_favorite_food, sql_select_all_vegetarian_pets
 
 FOODS = [
   (1, "spinach", 1),

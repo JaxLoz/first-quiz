@@ -26,8 +26,57 @@
 # formulas and their outputs in the test file, `question3_test.py`.
 
 # This function should return an oven instance!
+
+
+class oven():
+  
+  
+   
+  def __init__(self):
+    self.ingredientes = []
+    self.boiled = False;
+    self.freezed = False;
+
+  def add(self,item):
+    
+    self.ingredientes.append(item)
+    ##print(f"Ingredientes agregados al horno: {self.ingredientes}")
+    return self.ingredientes
+  
+  def freeze(self):
+    
+    for i in range(len(self.ingredientes)):
+      item = self.ingredientes[i]
+      self.ingredientes[i] = "frozen "+ item
+    ##print(f"Elementos congelados: {self.ingredientes}")
+    self.freezed = True; 
+  
+  def boil(self):
+    for i in range(len(self.ingredientes)):
+      item = self.ingredientes[i]
+      self.ingredientes[i] = "boiled "+ item
+    ##print(f"Elementos hervidos: {self.ingredientes}")
+    self.boiled = True;
+      
+  
+  def wait(self):
+    print("En espera")
+  
+  def get_output(self):
+    if self.ingredientes == ['boiled lead', 'boiled mercury'] and self.boiled:
+      return "gold"
+    elif self.ingredientes == ['frozen water', 'frozen air'] and self.freezed:
+      return "snow"
+    elif self.ingredientes == ["boiled cheese", "boiled dough", "boiled tomato"] and self.boiled:
+      return "pizza"
+    else:
+      return "Receta no encontrada"
+
+
+
 def make_oven():
-  None
+  horno=oven()
+  return horno
 
 def alchemy_combine(oven, ingredients, temperature):
   
@@ -42,3 +91,9 @@ def alchemy_combine(oven, ingredients, temperature):
     oven.wait()
 
   return oven.get_output()
+  
+
+
+
+
+alchemy_combine(make_oven(), ["lead", "mercury"], 5000)
